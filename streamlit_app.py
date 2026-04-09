@@ -1,4 +1,3 @@
-import os
 import streamlit as st
 from langchain.chains import ConversationChain
 from langchain_openai import ChatOpenAI
@@ -56,7 +55,7 @@ def get_prompt_template(subject, style):
 
 def generate_response(user_input, subject, style, memory):
     client = ChatOpenAI(
-        api_key=os.getenv("API_KEY"),
+        api_key=st.secrets["OPENAI_API_KEY"],
         model="deepseek-chat",
         base_url="https://api.deepseek.com",
         temperature=0.0
